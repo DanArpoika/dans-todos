@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'Routes';
+import Link from 'next/link';
 
 if (process.env.NODE_ENV !== 'production' && !process.env.SITE_URL) {
   console.error('InlineLink.js: No SITE_URL set in .env');

@@ -1,4 +1,4 @@
-# next.js starter
+# Seagulls Todo
 
 ```bash
 # install
@@ -8,220 +8,53 @@ yarn install
 yarn dev
 ```
 
-## ENV Variables
-Located in `./.env`
+## Designs
+[Figma](https://www.figma.com/file/ReYqwBq3jdXXfTc5kkMI5O/React-Todo?node-id=0%3A1)
 
-- `SITE_URL` - used to transform absolute links when applicable (omit `https://www`. ex: `elegantseagulls.com`)
-- `IGNORED_URLS` - used to list URLs that should be ignored from the site map. These URLs should be comma separated. See example:
+---
 
-```
-IGNORED_URLS=/posts/single,/case-study/espn/,/contact-us/hidden
-```
+## Prerequisite JavaScript Concepts
+- JS array & object
+- JS array methods (map, filter, splice, etc)
+- [JS Switch Statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+- [HTML localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [es6 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-### Recommended variables
-- CMS/API urls
-- API Access Tokens
-- Anything that shouldn't be stored in github or visible on the front-end. *Remember that variables used on the front-end will be visible in bundled code.*
+---
 
-## Aliased Files/Directories
-- **Styles** &rarr; app/styles
-- **Util** &rarr; app/util
-- **Components** &rarr; app/components
-- **Routes** &rarr; app/routes.js
-
-## Components
-- [Container](#container)
-- [Grid](#grid)
-- [Heading](#heading)
-- [InlineLink](#inlinelink)
-- [Button](#button)
-- [RatioImg](#ratioimg)
-- [LazyImg](#lazyimg)
-- [UnstyledButton](#unstyledbutton)
-- [UnstyledList](#unstyledlist)
-- [VisuallyHidden](#visuallyhidden)
-
-### Container
-CSS custom property `--container-width` set in `./app/styles/global-style.js`
-```jsx
-<Container />
-```
-
-### Grid
-**Grid props**
-
-Prop	    | Type                         | Default           |
----	    |---	                           |---	               |
-position |`[static, relative, absolute]` |relative           |
-cols   	|number   	                     |`props.theme.cols` |
-
-#### Usecase example:
-Sometimes `<Grid>` is nested directly inside of `<Container>`. To reduce the number of divs use styled components `as` prop.
-
-**Bad**
-```jsx
-<Container>
-  <Grid>
-    ...
-  </Grid>
-</Container>
-```
-
-**Good**
-```jsx
-<Grid as={Container}>
-  /* code goes here */
-</Grid>
-```
-
-**Grid.Item props**
-
-Prop	| Type  | Default |
----	  |---	  |---	    |
-span  |number |1        |
-
-```jsx
-<Grid cols={12} />
-<Grid.Item span={4} />
-```
-
-### Heading
-Named exports for all heading levels (h1-h6)
-```jsx
-import { H1 } from './H';
-
-<H1>I'm a h1</H1>
-
-${/* h1 style but h2 level */}
-<H1 as="h2">I look like h1 but I&#39;m really a h2</H1>
-```
-
-### InlineLink
-Transforms external links to relavtive links for next router. Requires `SITE_URL` defined in `./.env`
-
-**InlineLink props**
-
-|Prop	    | Type          | Default     |
-|---	    |---	          |---	        |
-|href     |string         |`undefined`  |
-|children |string or node |`undefined`  |
-
-```jsx
-<InlineLink href="https://elegantseagulls.com">Elegant Seagulls</InlineLink>
-```
-
-### Button
-Returns the correct tag based on props passed. If `href` is passed an `a` tag will be returned otherwise a `button` tag will be returned.
-
-### RatioImg
-Forces aspect ratio based on `width` and `height` props. These properties do not define the literal width and height. `styles` and `as` props will be applied to `<RatioImg>` component. `...rest` will be passed to the `<img>`.
-
-**RatioImg props**
-
-|Prop	        | Type              | Default    | Info                           |
-|---	        |---	              |---	       |---                             |
-|src          |string             |`undefined` |                                |
-|srcSet       |string             |`undefined` |                                |
-|picture      |array              |`undefined` |                                |
-|width        |number             |`undefined` |                                |
-|height       |number             |`undefined` |                                |
-|imageStyles  |string             |`undefined` | Styles passed to image element |
-|as           |string             |`div`       | Wrapper html element           |
-|alt          |string             |`undefined` |                                |
-
-```jsx
-<RatioImg
-  width={466}
-  height={570}
-  src={`${block.fields.photo.fields.file.url}?w=466&h=570&fit=thumb&q=80&fm=jpg&fl=progressive`}
-  alt={block.fields.photo.fields.description}
-  picture={[
-    {
-      srcSet: `${block.fields.photo.fields.file.url}?w=608&h=450&fit=thumb&q=80&fm=jpg&fl=progressive`,
-      media: '(max-width: 580px)',
-      width: 608,
-      height: 450,
-    },
-  ]}
-/>
-```
-
-```jsx
-import styled from 'styled-components';
-
-const MyImage = styled(RatioImg)`
-  max-width: 500px;
-`;
-
-<MyImage
-  src="https://source.unsplash.com"
-  // ...remaining props...
-/>
-```
-
-### LazyImg
-Prevent images from loading until they're in the viewport. Depends on `react-interesection-observer`.
-
-**LazyImg props**
-
-|Prop	        | Type              | Default    | Info                           |
-|---	        |---	              |---	       |---                             |
-|src          |string             |`undefined` |                                |
-|srcSet       |string             |`undefined` |                                |
-|picture      |array              |`undefined` |                                |
-|width        |number             |`undefined` |                                |
-|height       |number             |`undefined` |                                |
-|imageStyles  |string             |`undefined` | Styles passed to image element |
-|as           |string             |`div`       | Wrapper html element           |
-|alt          |string             |`undefined` |                                |
-|bottomOffset |`[string, number]` | 250px      | Distance from viewport when image is loaded |
-
-```jsx
-<LazyImg
-  width={466}
-  height={570}
-  src={`${photo.fields.file.url}?w=466&h=570`}
-  alt={photo.fields.description}
-  picture={[
-    {
-      srcSet: `${photo.fields.file.url}?w=608&h=450`,
-      media: '(max-width: 580px)',
-      width: 608,
-      height: 450,
-    },
-  ]}
-/>
-```
-
-### UnstyledButton
-Removes all default styling from the `<button>` element (including iOS & browser specific styles). Use `<UnstyledButton>` instead of adding click events to `<a>` or `<div>`.
-```jsx
-<UnstyledButton />
-```
-
-### UnstyledList
-Removes all default styling from the `<ul>` element. `<UnstyledList.Item>` defaults to `inline-block`.
-
-**UnstyledList.Item props**
-
-|Prop	  | Type  | Default   |
-|---	  |---	  |---	      |
-|display |`[inline, inline-block, block]` |`inline-block` |
-
-```jsx
-<UnstyledList />
-<UnstyledList.Item />
-```
-
-### VisuallyHidden
-Visually hide an element while keeping is accessible for screen reader
-
-**VisuallyHidden props**
-
-|Prop	  | Type  | Default   |
-|---	  |---	  |---	      |
-|as |string |`div` |
-
-```jsx
-<VisuallyHidden as="span" />
-```
+## Let&apos;s do it
+* Make a form that has a text input and submit button
+  * [React controlled input](https://reactjs.org/docs/forms.html#controlled-components) (example is using class components). Please use function components & [useState](https://reactjs.org/docs/hooks-state.html)
+  * Add an `onSubmit` function to the form (`console.log` the value for now)
+  * Style it
+* Data Structure
+  * The todo list will be an array
+  * Each item in in the todo list will include: ID, created date, completed, todo description
+    * Each item needs a unique id. Since the list is constantly changing using the array index as a key isn’t plausible. [React keys](https://reactjs.org/docs/lists-and-keys.html#keys)
+    * Use function inside of `app/lib/generateID` to generate IDs
+* Add a todo item
+  * [Why reducer?](https://reactjs.org/docs/hooks-reference.html#usereducer)
+  * Reducer [demo](https://codesandbox.io/s/react-reducer-demo-2slbx) from react docs
+  * Setup reducer function, `useReducer`, and initial reducer state. Initial state should probably be `null`.
+  * Add a new case to the reducer function called “add”. This should return an array of objects (aka a list of todos).
+  * Update form submit use the dispatch function for “add”
+  * If adding multiple todos do the old events persist or do they get overwritten? If they get overwritten don’t forget about the previous state in your “add” function. *Hint: use array spread.*
+* Output the list
+  * Map through the list of items
+    * *Hint: Can’t map through a list that doesn’t exist*
+  * Add the complete toggle (checkbox) and remove button
+  * Style it
+* Add a new case to the reducer to “remove” or “delete” an item
+  * *Hint: Need to remove and item from an array*
+  * Use the dispatch function on click of the delete button
+* Add another new case to the reducer to “complete” an item
+  * Set up the checkbox onChange handler use the dispatch function
+  * *Hint: replacing the item that has been marked as complete*
+  * You might need this https://stackoverflow.com/questions/55771805/does-usestate-not-call-a-rerender-when-working-with-object-states
+* Save & retrieve using localStorage
+  * [useEffect](https://stackoverflow.com/questions/55771805/does-usestate-not-call-a-rerender-when-working-with-object-states) - runs on mount and every time one of its dependencies change
+  * Save todos (from state) in localStorage if they exist
+  * If they don’t exist try to retrieve them from local storage
+    * Once retrieved use the dispatch function to initialize the retrieved values (or an empty array if no values were retrieved)
+* Set up the Remove Completed button in the nav
+* *Optional*: loading & empty states

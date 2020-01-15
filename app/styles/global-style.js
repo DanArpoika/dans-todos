@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: "hevletica", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
