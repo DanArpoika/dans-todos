@@ -1,0 +1,61 @@
+{
+  "name": "next-starter",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node app/server.js",
+    "build": "next build ./app",
+    "export": "yarn build && next export ./app",
+    "postexport": "node scripts/getSitemap.js",
+    "start": "NODE_ENV=production node app/server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint './app/**/*.js'",
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "stylelint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "date-fns": "^2.1.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.14.0",
+    "next": "^9.1.6",
+    "next-routes": "^1.4.2",
+    "polished": "^3.4.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.24.1",
+    "styled-components": "^4.4.1",
+    "superior-mq": "^0.0.3",
+    "use-is-tabbing": "^0.1.1"
+  },
+  "devDependencies": {
+    "@gulls/stylelint-config": "^0.1.3",
+    "@ueno/eslint-config": "^1.2.8",
+    "eslint": "^4.9.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-module-resolver": "^0.9.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "lint-staged": "^7.0.0",
+    "pre-commit": "^1.2.2",
+    "stylelint": "^9.9.0"
+  },
+  "eslintIgnore": [
+    "app/static/**"
+  ],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=10"
+  }
+}
