@@ -1,12 +1,5 @@
 # Seagulls Todo
 
-```bash
-# install
-yarn install
-
-# run
-yarn dev
-```
 
 ## Designs
 [Figma](https://www.figma.com/file/ReYqwBq3jdXXfTc5kkMI5O/React-Todo?node-id=0%3A1)
@@ -17,6 +10,21 @@ yarn dev
 - [JS Switch Statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 - [HTML localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 - [es6 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+## Clone & Install
+```bash
+# clone it
+git clone https://github.com/jbsmith731/gulls-todo.git gulls-todo && cd $_
+
+# OPTIONAL: open vscode from terminal
+code .
+
+# install
+yarn install
+
+# run
+yarn dev
+```
 
 ## Let&apos;s do it
 * Make a form that has a text input and submit button
