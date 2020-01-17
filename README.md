@@ -35,7 +35,7 @@ yarn dev
   * The todo list will be an array
   * Each item in in the todo list will include: ID, created date, completed, todo description
     * Each item needs a unique id. Since the list is constantly changing using the array index as a key isn’t plausible. [React keys](https://reactjs.org/docs/lists-and-keys.html#keys)
-    * Use function inside of `app/lib/generateID` to generate IDs
+    * Use function inside of `app/util/generateID` to generate IDs
 * Add a todo item
   * [Why reducer?](https://reactjs.org/docs/hooks-reference.html#usereducer)
   * Reducer [demo](https://codesandbox.io/s/react-reducer-demo-2slbx) from react docs
