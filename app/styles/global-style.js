@@ -1,9 +1,16 @@
+import screen from 'superior-mq';
 import { createGlobalStyle } from 'styled-components';
+import { bp } from 'Styles/helpers';
 
 const GlobalStyle = createGlobalStyle`
 
   :root {
     --container-width: 1240px;
+    --pad-default: 24px;
+
+    ${screen.below(bp.portrait, `
+      --pad-default: 15px;
+    `)}
   }
 
   *,
@@ -17,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
     color: ${props => props.theme.black};
+    background-color: ${props => props.theme.bgGray};
   }
 
   h1,

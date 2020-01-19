@@ -943,9 +943,16 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.5":
+"@babel/runtime@^7.0.0":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.6.3":
+  version "7.8.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.3.tgz#0811944f73a6c926bb2ad35e918dcc1bfab279f1"
+  integrity sha512-fVHx1rzEmwB130VTkLnxR+HmxcTjGzH12LYQcFFoBwakMd3aOMD4OsRN7tGG/UOYE2ektgFrS8uACAoRk1CY0w==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -2568,8 +2575,9 @@ date-fns@^1.27.2:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
 
 date-fns@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.1.0.tgz#0d7e806c3cefe14a943532dbf968995ccfd46bd9"
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.9.0.tgz#d0b175a5c37ed5f17b97e2272bbc1fa5aec677d2"
+  integrity sha512-khbFLu/MlzLjEzy9Gh8oY1hNt/Dvxw3J6Rbc28cVoYWQaC1S3YI4xwkF9ZWcjDLscbZlY9hISMr66RFzZagLsA==
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -5579,11 +5587,12 @@ pnp-webpack-plugin@1.5.0:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.1.tgz#1eb5597ec1792206365635811d465751f5cbf71c"
+polished@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
+  integrity sha512-9Rch6iMZckABr6EFCLPZsxodeBpXMo9H4fRlfR/9VjMEyy5xpo1/WgXlJGgSjPyVhEZNycbW7UmYMNyWS5MI0g==
   dependencies:
-    "@babel/runtime" "^7.4.5"
+    "@babel/runtime" "^7.6.3"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -6077,7 +6086,7 @@ prop-types-exact@1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@15.7.2, prop-types@^15.5.10:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -6085,7 +6094,7 @@ prop-types@15.7.2, prop-types@^15.5.10:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.4, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
